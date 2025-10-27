@@ -43,16 +43,16 @@ class AuthService {
   String _handleError(DioException e) {
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
-        return '⏱ Kết nối quá thời gian.';
+        return 'Kết nối quá thời gian.';
       case DioExceptionType.receiveTimeout:
-        return '📡 Nhận dữ liệu quá thời gian.';
+        return 'Nhận dữ liệu quá thời gian.';
       case DioExceptionType.badResponse:
-        if (e.response?.statusCode == 401) return '🔒 Sai username hoặc password.';
-        return '⚠️ Lỗi server: ${e.response?.statusCode}';
+        if (e.response?.statusCode == 401) return 'Sai username hoặc password.';
+        return 'Lỗi server: ${e.response?.statusCode}';
       case DioExceptionType.connectionError:
-        return '🌐 Không thể kết nối tới server.';
+        return 'Không thể kết nối tới server.';
       default:
-        return '❗ Lỗi không xác định: ${e.message}';
+        return 'Lỗi không xác định: ${e.message}';
     }
   }
 }
